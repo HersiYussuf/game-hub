@@ -7,10 +7,13 @@
     "build": "tsc && vite build",
     "dev": "vite",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "npm run doppler",
+    "doppler": "doppler run -- vite"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
+    "@dopplerhq/node-sdk": "^1.2.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "abort-controller": "^3.0.0",
@@ -18,7 +21,8 @@
     "dotenv": "^16.4.4",
     "framer-motion": "^11.0.5",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^20.11.19",
