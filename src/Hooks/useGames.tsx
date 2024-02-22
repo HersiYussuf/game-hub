@@ -22,9 +22,11 @@ interface FetchGamesResponse {
 const useGames = () => {
   const [games, setGames] = useState<Games[]>([]);
   const [error, setError] = useState<string>("");
+  const [isLoading, setLoading] = useState<boolean | undefined>();
 
   useEffect(() => {
     let controller: AbortController | undefined;
+    setLoading(true);
 
     const fetchData = async () => {
       // Explicitly check for the existence of window and AbortController
@@ -40,11 +42,13 @@ const useGames = () => {
           signal: controller.signal,
         });
         setGames(response.data.results);
+        setLoading(false);
       } catch (err) {
         if (err instanceof CanceledError) {
           return;
         }
         setError((err as Error).message);
+        setLoading(false);
       } finally {
         // Ensure the controller is re-initialized for future fetch statements
         if (controller) {
@@ -67,7 +71,7 @@ const useGames = () => {
     };
   }, []); // Include dependencies array if needed
 
-  return { games, error };
+  return { games, error, isLoading };
 };
 
 export default useGames;
