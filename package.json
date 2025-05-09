@@ -10,7 +10,7 @@
     "doppler": "doppler run -- vite"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.8.2",
+    "@chakra-ui/react": "^2.9.0",
     "@dopplerhq/node-sdk": "^1.2.0",
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
